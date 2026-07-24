@@ -1,7 +1,7 @@
 import java.util.*;
 import java.io.*;
 
-public class BNewYearSNumber {
+public class ACandies {
 
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     static StringTokenizer st;
@@ -51,15 +51,24 @@ public class BNewYearSNumber {
     }
 
     /*
-        Find k = floor(N / 2020) (how many times 2020 fits into N).
-        Find y = N mod 2020 (the remainder).
-        The Relation: If y <= k, the number is possible.
+        x + 2x + 4x + ... + 2^(k - 1) x = n 
+        -> x.(1 + 2 + 4 + ... + 2^(k - 1)) = n
+        -> x.(2^(k - 1) - 1) = n [sum of GP, r = 2 > 1]
+        -> x = n / (2^(k - 1) - 1)
     */
     static void solve() throws IOException {
-        int n = nextInt();
-        int k = n / 2020;
-        int y = n % 2020;
+        long n = nextLong();
 
-        sb.append(y <= k ? "YES\n" : "NO\n");
+        long res = 0;
+
+        for(int k = 2; k <= n; k++){
+            long val = (1 << k) - 1;
+            if(n % val == 0){
+                res = n / val;
+                break;
+            }
+        }
+
+        sb.append(res).append("\n");
     }
 }
