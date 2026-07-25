@@ -23,6 +23,7 @@ public class Problem617A {
         System.out.flush();
     }
 
+    // Elephant
     static void solve() throws IOException {
         int n = nextInt();
 

@@ -23,6 +23,7 @@ public class Problem50A {
         System.out.flush();
     }
 
+    // Domino Piling
     static void solve() throws IOException {
         int m = nextInt();
         int n = nextInt();

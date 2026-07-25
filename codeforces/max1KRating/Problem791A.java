@@ -23,6 +23,7 @@ public class Problem791A {
         System.out.flush();
     }
 
+    // Bear & Big Brother
     static void solve() throws IOException {
         int a = nextInt();
         int b = nextInt();
