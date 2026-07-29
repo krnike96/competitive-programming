@@ -1,7 +1,7 @@
 import java.util.*;
 import java.io.*;
 
-public class ADivideAndConquer {
+public class BProperNutrition {
 
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     static StringTokenizer st;
@@ -42,8 +42,8 @@ public class ADivideAndConquer {
     static StringBuilder sb = new StringBuilder();
 
     public static void main(String[] args) throws IOException {
-        int t = nextInt();
-        while (t-- > 0) 
+        // int t = nextInt();
+        // while (t-- > 0) 
             solve();
         
         System.out.print(sb);
@@ -52,34 +52,19 @@ public class ADivideAndConquer {
 
     static void solve() throws IOException {
         int n = nextInt();
-        int[] nums = new int[n];
-        int sum = 0;
+        int a = nextInt();
+        int b = nextInt();
 
-        for(int i = 0; i < n; i++){
-            nums[i] = nextInt();
-            sum += nums[i];
-        }
+        for(int i = 0; (long)i * a <= n; i++){
+            int rem = n - (i * a);
 
-        if((sum & 1) == 0){
-            sb.append("0\n");
-            return;
-        }
-
-        int res = Integer.MAX_VALUE;
-
-        for(int i = 0; i < n; i++){
-            int tmp = nums[i]; 
-            int parity = tmp % 2;
-            int curr = 0;
-
-            while(tmp % 2 == parity){
-                tmp /= 2;
-                curr++;
+            if(rem % b == 0){
+                sb.append("YES\n");
+                sb.append(i + " " + (rem / b)).append("\n");
+                return;
             }
-
-            res = Math.min(res, curr);
         }
 
-        sb.append(res).append("\n");
+        sb.append("NO\n");
     }
 }
