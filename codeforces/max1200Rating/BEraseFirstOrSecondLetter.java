@@ -51,7 +51,7 @@ public class BEraseFirstOrSecondLetter {
     }
 
     static void solve() throws IOException {
-        int n = nextInt();
+        int n = nextInt(); // not use full
         char[] s = next().toCharArray();
 
         int mask = 0;
